@@ -11,3 +11,15 @@ Function IsFileFolder(ByVal path As String) As Long
     End If
 End Function
   
+Private Function GetPath() As String
+    GetPath = ""
+    ChDir ThisWorkbook.Path
+    GetPath = Application.GetOpenFilename("全てのファイル,*.*")
+    If GetPath = "False" Then
+        GetPath = ""
+        Exit Function
+    End If
+End Function
+        
+        
+        
