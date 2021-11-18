@@ -25,6 +25,9 @@ Sub MemoFileSystemObject()
     ' 参照設定→Microsoft Scripting Runtime
     Dim fso As Object
     Set fso = CreateObject("Scripting.FileSystemObject")
+    
+    ' エラー時の処理
+    On Error Resume Next
 End Sub
 
 Sub MemoHairetsu()
