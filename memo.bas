@@ -20,14 +20,29 @@ Const 定数名 As Long = 1
 ' Application.ScreenUpdating = False
 ' Application.ScreenUpdating = True
 
+Sub MemoMain()
+    ' 画面更新
+    Application.ScreenUpdating = False
+    ' エラー時の処理
+    On Error Resume Next
+    ' コマンド使いたい時
+    Dim objShell As Object
+    Set objShell = CreateObject("WScript.Shell")
+    ovjShell.Run "ここにコマンド記載"
+    ' ネットワークドライブ使いたい時
+    Dim objNet As Object
+    Set objNet = CreateObject("WScript.Network")
+    ' 接続
+    objNet.MapNetworkDrive "X:", "\\xxxxxxx.pvt.cis\C$\MainteSIP", False, ユーザーID, パスワード
+    ' 切断
+    objNet.RemoveNetworkDrive "X:", True, True
+End Sub
+
 Sub MemoFileSystemObject()
     ' ★FileSystemObjectについて
     ' 参照設定→Microsoft Scripting Runtime
     Dim fso As Object
     Set fso = CreateObject("Scripting.FileSystemObject")
-    
-    ' エラー時の処理
-    On Error Resume Next
 End Sub
 
 Sub MemoHairetsu()
