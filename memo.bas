@@ -45,6 +45,15 @@ Sub MemoFileSystemObject()
     Set fso = CreateObject("Scripting.FileSystemObject")
 End Sub
 
+Sub Network()
+    Dim objNet As Object
+    Set objNet = CreateObject("WScript.Network")
+    ' 接続（割当ドライブ:、パス、資格情報保存するか、ユーザーID、パスワード）
+    objNet.MapNetworkDrive "X:", "\\xxxxxxx\C$\xxxxx", False, ユーザーID, パスワード
+    ' 切断
+    objNet.RemoveNetworkDrive "X:", True, True
+END Sub
+
 Sub MemoHairetsu()
     ' ★配列について
     ' セル内のデータを操作する場合は配列に格納して処理、
