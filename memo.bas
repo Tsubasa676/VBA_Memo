@@ -1,3 +1,5 @@
+' 後で各basに分解する
+
 ' ★注意点
 ' ・数式の挙動とvbaの挙動が異なる場合があるため注意する
 
@@ -80,6 +82,15 @@ Sub MemoHairetsu()
     ' 配列の要素（2次元配列は横の要素も取れる）
     Debug.Print "2次元配列縦：初期値：" & LBound(cellArr, 1) & "要素数："; UBound(cellArr, 1)
     Debug.Print "2次元配列横：初期値：" & LBound(cellArr, 2) & "要素数："; UBound(cellArr, 2)
+    ' 辞書 
+    Dim dic as Dictionary
+    Set dic = New Dictionary
+    ' 配列の例。Dictionaryにキーとアイテムを追加
+    For LBound(配列) TO UBound(配列) 
+        if Not dic.Exists(配列(i)) Then
+            dic.Add 配列(i), 配列(i) ' キー,アイテム
+        End If
+    Next
 End Sub
 
 Sub MemoClipboard()
